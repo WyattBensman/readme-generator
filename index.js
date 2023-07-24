@@ -57,42 +57,9 @@ const questions = [
     }
 ];
 
-const generateHTML = ({ title, description, toc, installation, usage, license, contributing, tests, github, email }) => {
-    return `# ${title}
-    
-    ## Description
-    ${description}
-
-    ## Table of Contents
-    ${toc}
-
-    ## Installation
-    ${installation}
-
-    ## Usage
-    ${usage}
-
-    ## License
-    ${license}
-
-    ## Contributing 
-    ${contributing}
-
-    ## Tests
-    ${tests}
-
-    ## Questions
-    ** GitHub Profile **
-    https://github.com/${github}
-
-    ** How to Reach Me **
-    ${email}
-  `
-}
-
 function init() {
     inquirer.prompt(questions).then((answers) => {
-        fs.writeFile('README.md', generateHTML(answers), (err) => {
+        fs.writeFile('README.md', generateMarkdown(answers), (err) => {
             if (err) console.log(err);
         });
     });
