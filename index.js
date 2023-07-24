@@ -1,10 +1,8 @@
-// TODO: Include packages needed for this application
 const fs = require('fs');
 const inquirer = require('inquirer');
 const { default: Choices } = require('inquirer/lib/objects/choices');
 const generateMarkdown = require('./generateMarkdown')
 
-// TODO: Create an array of questions for user input
 const questions = [
     {
         type: 'input',
@@ -35,7 +33,7 @@ const questions = [
         type: 'list',
         message: 'License:',
         name: 'license',
-        choices: ['MIT', 'Apache 2.0', 'GPL 3.0', 'BSD 3-Clause']
+        choices: ['MIT', 'Apache 2.0', 'GPL 3.0', 'BSD 3-Clause', 'none']
     },
     {
         type: 'input',
@@ -49,12 +47,17 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Questions:',
-        name: 'questions'
+        message: 'GitHub Username:',
+        name: 'github'
     },
+    {
+        type: 'input',
+        message: 'Email Address:',
+        name: 'email'
+    }
 ];
 
-let generateHTML = ({ title, description, toc, installation, usage, license, contributing, tests, questions }) => {
+const generateHTML = ({ title, description, toc, installation, usage, license, contributing, tests, github, email }) => {
     return `# ${title}
     
     ## Description
@@ -79,11 +82,14 @@ let generateHTML = ({ title, description, toc, installation, usage, license, con
     ${tests}
 
     ## Questions
-    ${questions}
+    ** GitHub Profile **
+    https://github.com/${github}
+
+    ** How to Reach Me **
+    ${email}
   `
 }
 
-// TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions).then((answers) => {
         fs.writeFile('README.md', generateHTML(answers), (err) => {
@@ -92,5 +98,4 @@ function init() {
     });
 }
 
-// Function call to initialize app
 init();
