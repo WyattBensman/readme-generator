@@ -4,7 +4,16 @@
 
   ## Description
 
-  This is a ReadMe generator using the inquirer node dependencie. Making it possible to easily make a professional README file for any project in seconds!
+  This is a ReadMe generator using the inquirer module. Easily make a professional README file for any project in seconds!
+
+  ## Table of Contents
+
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+    - [License](#license)
+  - [Questions](#questions)
 
   ## Installation
 
@@ -13,6 +22,14 @@
   ## Usage
 
   To easily create a professional README file all you need to do is run the node module & fill in the questions to generate a README file in seconds.
+
+  ## Contributing 
+
+  Me
+
+  ## Tests
+
+  https://opensource.org/licenses/Apache-2.0
 
   ## Questions
   Have any questions? Feel free to reach out whenever!
